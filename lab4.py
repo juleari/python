@@ -12,7 +12,7 @@ def random_safe( xs, n ):
 
 def random_sample( xs, n ):
     xs = list( set(xs) )
-    return [] if len(xs) < n else random_safe( xs, n )
+    return [] if n < 0 or len(xs) < n else random_safe( xs, n )
 
 def main():
     xs = [2, 4, 0, 7, 9, 5]
@@ -21,6 +21,7 @@ def main():
     print random_sample( xs, 3 )
     print random_sample( xs, 3 )
     print random_sample( xs, 8 )
+    print random_sample( xs, -2 )
 
 if __name__ == '__main__':
     main()
